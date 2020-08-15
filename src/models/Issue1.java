@@ -10,9 +10,21 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "average_rate",
+            query = "select avg(i.rate) from Issue1 as i where i.newspaper.year = :year and i.company = :company"
+            ),
+    @NamedQuery(
+            name="collect_year",
+            query = "select distinct i.newspaper.year from Issue1 as i where i.company = :company")
+
+})
 @Table(name="issue1")
 public class Issue1 {
 
@@ -60,11 +72,17 @@ public class Issue1 {
     @Column(name="mita")
     private Long mita;//三田への割り当て
 
+    @Column(name="other")
+    private Long other;//他の場所の割り当て
+
     @Column(name="hiyoshi_a")
     private Long hiyoshi_a;//日吉のハケ数
 
     @Column(name="mita_a")
     private Long mita_a;//三田のハケ数
+
+    @Column(name="other_a")
+    private Long other_a;//それ以外のハケ数
 
     @Column(name="decision")
     private Integer decision;
