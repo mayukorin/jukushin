@@ -4,6 +4,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<class>models.company</class>
 		<class>models.Newspaper</class>
+		<class>models.Issue1</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/jukushin?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
