@@ -6,6 +6,7 @@
 		<class>models.Newspaper</class>
 		<class>models.Issue1</class>
 		<class>models.Place</class>
+		<class>models.Issue2</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/jukushin?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
