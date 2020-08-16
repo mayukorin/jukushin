@@ -20,7 +20,7 @@
                         <c:forEach var="y_s" items="${ys_rs}" varStatus = "s">
                             <c:choose>
                                 <c:when test="${s.count == 1 }">
-                                    <td class="annual_year"><a href="<c:url value='/newspapers/index?year=y_s'/>"><c:out value="${y_s}"/></a></td>
+                                    <td class="annual_year"><a href="<c:url value='/newspapers/index?year=${y_s}'/>"><c:out value="${y_s}"/></a></td>
                                 </c:when>
                                 <c:otherwise>
                                     <td class="annual_rate"><c:out value="${y_s}"/></td>

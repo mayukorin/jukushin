@@ -54,7 +54,7 @@ public class YearIndexServlet extends HttpServlet {
 
         List<Integer> years = em.createNamedQuery("collect_year",Integer.class).setParameter("company",c).setFirstResult(15*(page-1)).setMaxResults(15).getResultList();//その会社が登録している年
         Iterator<Integer> yi = years.iterator();
-        long year_count = years.size();
+        long year_count = (em.createNamedQuery("collect_year",Integer.class).setParameter("company",c).getResultList()).size();
 
         while(yi.hasNext()) {
             List<Object> year_rate = new ArrayList<Object>();

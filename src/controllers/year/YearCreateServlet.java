@@ -104,6 +104,7 @@ public class YearCreateServlet extends HttpServlet {
                         i1.setRate(0.0);
                         i1.setCreated_at(currentTime);
                         i1.setUpdated_at(currentTime);
+                        i1.setDecision(0);
                         //////////////////////////////////
 
                         em.getTransaction().begin();
@@ -136,6 +137,7 @@ public class YearCreateServlet extends HttpServlet {
                         i1.setRate(0.0);
                         i1.setCreated_at(currentTime);
                         i1.setUpdated_at(currentTime);
+                        i1.setDecision(0);
 
 
                         em.getTransaction().begin();
