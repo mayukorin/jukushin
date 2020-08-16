@@ -14,13 +14,12 @@
                 <tr>
                     <th class="annual_year">年度</th>
                     <th class="annual_rate">ハケ率</th>
-                    <th class="annual_action">操作</th>
                 </tr>
                 <c:forEach var="ys_rs" items="${years_rates}" varStatus="status">
                     <tr class="row${status.count % 2 }">
                         <c:forEach var="y_s" items="${ys_rs}" varStatus = "s">
                             <c:choose>
-                                <c:when test="${s == 0 }">
+                                <c:when test="${s.count == 1 }">
                                     <td class="annual_year"><a href="<c:url value='/newspapers/index?year=y_s'/>"><c:out value="${y_s}"/></a></td>
                                 </c:when>
                                 <c:otherwise>
@@ -41,12 +40,12 @@
                         <c:out value="${i}"/>&nbsp;
                     </c:when>
                     <c:otherwise>
-                        <a href="<c:url value='annuals/index?page=${i}'/>"><c:out value="${i}"/></a>&nbsp;
+                        <a href="<c:url value='/index.html?page=${i}'/>"><c:out value="${i}"/></a>&nbsp;
                     </c:otherwise>
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='/yaers/new'/>">新規年度の登録</a></p>
+        <p><a href="<c:url value='/years/new'/>">新規年度の登録</a></p>
         <c:if test="${flag==1 }">
             <p><a href="<c:url value='/chart/annualole'/>">年度別のハケ率をグラフで見る</a><p>
         </c:if>

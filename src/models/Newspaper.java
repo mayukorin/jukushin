@@ -5,10 +5,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name = "year_exit",
+            query = "select n from Newspaper as n where n.year = :year"
+            ),
 
+})
 @Table(name="newspaper")
 public class Newspaper {
 

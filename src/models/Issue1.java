@@ -22,7 +22,11 @@ import javax.persistence.Table;
             ),
     @NamedQuery(
             name="collect_year",
-            query = "select distinct i.newspaper.year from Issue1 as i where i.company = :company")
+            query = "select distinct i.newspaper.year from Issue1 as i where i.company = :company"
+            ),
+    @NamedQuery(
+            name="selected_year",
+            query = "select i from Issue1 as i where i.company = :company and i.newspaper.year = :year")
 
 })
 @Table(name="issue1")
@@ -41,7 +45,7 @@ public class Issue1 {
     @JoinColumn(name="newspaper")
     private Newspaper newspaper;
 
-    @Column(name="volumn",nullable=false)
+    @Column(name="volumn")
     private Long volumn;//発行部数
 
     @Lob
