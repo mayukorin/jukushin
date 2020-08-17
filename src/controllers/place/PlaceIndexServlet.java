@@ -40,6 +40,7 @@ public class PlaceIndexServlet extends HttpServlet {
         // TODO Auto-generated method stub
       //セッションスコープに新聞のidが格納されていない場合（新聞を新規作成して、初めてindexページへ遷移する時など）は、格納する。
         EntityManager em =DBUtil.createEntityManager();
+        Issue1 i1;
         try {
             Integer nes_id =Integer.parseInt(request.getParameter("id"));///newspapaerindexの詳細を見るのリンクのクエリパラメータから得たidを取り出す
             request.getSession().setAttribute("nes_id", nes_id);
@@ -50,8 +51,12 @@ public class PlaceIndexServlet extends HttpServlet {
 
         company c =(company)request.getSession().getAttribute("login_company");
 
-        Issue1 i1 = em.find(Issue1.class,Integer.parseInt(request.getParameter("id")));
-        request.getSession().setAttribute("i1",i1);//詳細を見るIssue1を格納
+        try {
+                i1 = em.find(Issue1.class,Integer.parseInt(request.getParameter("id")));
+                request.getSession().setAttribute("i1",i1);//詳細を見るIssue1を格納
+        } catch (Exception e) {
+            i1 = (Issue1) request.getSession().getAttribute("i1");
+        }
 
 
         //キャンパスごとの新聞ごとのotherplaceを取り出す。
