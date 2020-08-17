@@ -42,14 +42,14 @@ public class Issue2 {
     @Column(name="can_flag",nullable=false)
     private Integer can_flag;//どこに届いた新聞を使うか。三田だと0、日吉だと1、その他だと2。
 
-    @Column(name="aim",nullable=false)
-    private Integer aim;
+    @Column(name="aim")
+    private Long aim;
 
-    @Column(name="aimconst",nullable=false)
-    private Integer aimconst;
+    @Column(name="aimconst")
+    private Long aimconst;
 
     @Column(name="act")
-    private Integer act;
+    private Long act;
 
     @Lob
     @Column(name="content")
@@ -111,27 +111,27 @@ public class Issue2 {
         this.can_flag = can_flag;
     }
 
-    public Integer getAim() {
+    public Long getAim() {
         return aim;
     }
 
-    public void setAim(Integer aim) {
+    public void setAim(Long aim) {
         this.aim = aim;
     }
 
-    public Integer getAimconst() {
+    public Long getAimconst() {
         return aimconst;
     }
 
-    public void setAimconst(Integer aimconst) {
+    public void setAimconst(Long aimconst) {
         this.aimconst = aimconst;
     }
 
-    public Integer getAct() {
+    public Long getAct() {
         return act;
     }
 
-    public void setAct(Integer act) {
+    public void setAct(Long act) {
         this.act = act;
     }
 

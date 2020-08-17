@@ -91,6 +91,9 @@ public class Issue1 {
     @Column(name="decision")
     private Integer decision;
 
+    @Column(name="vo_decision")
+    private Integer vo_decision;//発行部数が決まっているか
+
     public Integer getId() {
         return id;
     }
@@ -189,6 +192,30 @@ public class Issue1 {
 
     public Long getMita() {
         return mita;
+    }
+
+    public Long getOther() {
+        return other;
+    }
+
+    public void setOther(Long other) {
+        this.other = other;
+    }
+
+    public Long getOther_a() {
+        return other_a;
+    }
+
+    public void setOther_a(Long other_a) {
+        this.other_a = other_a;
+    }
+
+    public Integer getVo_decision() {
+        return vo_decision;
+    }
+
+    public void setVo_decision(Integer vo_decision) {
+        this.vo_decision = vo_decision;
     }
 
     public void setMita(Long mita) {

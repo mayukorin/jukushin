@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Issue1;
+import models.Issue2;
 import models.Newspaper;
+import models.Place;
 import models.company;
 import models.validator.YearValidator;
 import utils.DBUtil;
@@ -90,6 +92,9 @@ public class YearCreateServlet extends HttpServlet {
                 Integer year = Integer.parseInt(year_str);//入力した年
                 List<Newspaper> years = em.createNamedQuery("year_exit",Newspaper.class).setParameter("year", year).getResultList();//その年のnewspaperが存在するのか
 
+                List<Place> df = em.createNamedQuery("default_place",Place.class).getResultList();//デフォルトで配達部数が決まっている場所
+
+
                 Timestamp currentTime = new Timestamp(System.currentTimeMillis());
 
                 if (years.size() > 0) {
@@ -105,11 +110,43 @@ public class YearCreateServlet extends HttpServlet {
                         i1.setCreated_at(currentTime);
                         i1.setUpdated_at(currentTime);
                         i1.setDecision(0);
+                        i1.setVo_decision(0);//まだ発行部数を決めていない
+
                         //////////////////////////////////
+
 
                         em.getTransaction().begin();
                         em.persist(i1);
                         em.getTransaction().commit();
+
+                        //デフォルトのissue2を作成///////////////
+
+                       for (int i=0;i<df.size();i++) {
+
+                           Place pf = df.get(i);
+
+                           Issue2 i2 = new Issue2();
+                           i2.setCompany(c);
+                           i2.setNewspaper(y);
+                           i2.setPlace(pf);
+                           i2.setCreated_at(currentTime);
+                           i2.setUpdated_at(currentTime);
+                           i2.setAim(pf.getDefault_vo());
+                           if (1<= pf.getId() && pf.getId()<=5) {
+                               //日吉に新聞を持っていく
+                               i2.setCan_flag(1);
+                           } else if (6<= pf.getId() && pf.getId() <= 9) {
+                               //三田に新聞を持っていく
+                               i2.setCan_flag(0);
+                           } else {
+                               //それ以外の場所に新聞を持っていく
+                               i2.setCan_flag(2);
+                           }
+                           em.getTransaction().begin();
+                           em.persist(i2);
+                           em.getTransaction().commit();
+
+                        }
 
                     }
 
@@ -138,12 +175,39 @@ public class YearCreateServlet extends HttpServlet {
                         i1.setCreated_at(currentTime);
                         i1.setUpdated_at(currentTime);
                         i1.setDecision(0);
+                        i1.setVo_decision(0);//まだ発行部数を決めていない
 
 
                         em.getTransaction().begin();
                         em.persist(i1);
                         em.getTransaction().commit();
                         ////////////////////////////////////
+
+                        for (int k=0;k<df.size();k++) {
+
+                            Place pf = df.get(k);
+                            Issue2 i2 = new Issue2();
+                            i2.setCompany(c);
+                            i2.setNewspaper(n);
+                            i2.setPlace(pf);
+                            i2.setCreated_at(currentTime);
+                            i2.setUpdated_at(currentTime);
+                            i2.setAim(pf.getDefault_vo());
+                            if (1<= pf.getId() && pf.getId()<=5) {
+                                //日吉に新聞を持っていく
+                                i2.setCan_flag(1);
+                            } else if (6<= pf.getId() && pf.getId() <= 9) {
+                                //三田に新聞を持っていく
+                                i2.setCan_flag(0);
+                            } else {
+                                //それ以外の場所に新聞を持っていく
+                                i2.setCan_flag(2);
+                            }
+                            em.getTransaction().begin();
+                            em.persist(i2);
+                            em.getTransaction().commit();
+
+                         }
 
 
                     }

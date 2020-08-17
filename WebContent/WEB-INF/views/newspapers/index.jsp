@@ -15,8 +15,8 @@
                     <th class="newspaper_volume">発行部数</th>
                     <th class="newspaper_hake">ハケ数</th>
                     <th class="newspaper_rate">ハケ率</th>
-                    <th class="report_action">操作</th>
-                    <th class="report_action">操作</th>
+                    <th class="report_action">操作①</th>
+                    <th class="report_action">操作②</th>
 
                 </tr>
                 <c:forEach var="i" items="${i1}" varStatus="status">
@@ -25,7 +25,6 @@
                         <td class="newspaper_volume"><c:out value="${i.volumn}"/></td>
                         <td class="newspaper_hake"><c:out value="${i.hake}"/></td>
                         <td class="newspaper_rate"><c:out value="${i.rate}"/></td>
-                        <td class="report_action"><a href="<c:url value='/otherplace/index?id=${i.id}' />">詳細を見る</a></td>
                         <c:choose>
                         <c:when test="${i.decision == 0 }">
                             <td class="report_action"><a href="<c:url value='/newspapers/edit?id=${i.id}' />">編集する</a></td>
@@ -34,6 +33,15 @@
                             <td class="report_action">なし</td>
                         </c:otherwise>
                         </c:choose>
+                        <c:choose>
+                            <c:when test="${i.vo_decision == 1 }">
+                                <td class="report_action"><a href="<c:url value='/otherplace/index?id=${i.id}' />">詳細を見る</a></td>
+                            </c:when>
+                            <c:otherwise>
+                                <td class="report_action"><c:out value=""/></td>
+                            </c:otherwise>
+                        </c:choose>
+
 
                     </tr>
 
