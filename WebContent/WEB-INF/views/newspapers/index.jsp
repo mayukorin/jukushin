@@ -44,7 +44,7 @@
                         </c:choose>
                         <c:choose>
                             <c:when test="${i.vo_decision == 1 }">
-                                <td class="report_action"><a href="<c:url value='/otherplace/index?id=${i.id}' />">詳細を見る</a></td>
+                                <td class="report_action"><a href="<c:url value='/place/index?id=${i.id}' />">詳細を見る</a></td>
                             </c:when>
                             <c:otherwise>
                                 <td class="report_action"><c:out value=""/></td>

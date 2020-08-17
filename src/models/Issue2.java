@@ -10,9 +10,18 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
+@NamedQueries({
+    @NamedQuery(
+            name="getcanplaces",
+            query="select i2 from Issue2 as i2 where i2.can_flag = :flag and i2.company = :company and i2.newspaper = :newspaper"),
+
+
+})
 @Table(name="issue2")
 public class Issue2 {
 

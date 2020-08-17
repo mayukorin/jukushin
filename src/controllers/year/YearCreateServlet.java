@@ -132,10 +132,11 @@ public class YearCreateServlet extends HttpServlet {
                            i2.setCreated_at(currentTime);
                            i2.setUpdated_at(currentTime);
                            i2.setAim(pf.getDefault_vo());
+                           i2.setAimconst(pf.getDefault_vo());
                            if (1<= pf.getId() && pf.getId()<=5) {
                                //日吉に新聞を持っていく
                                i2.setCan_flag(1);
-                           } else if (6<= pf.getId() && pf.getId() <= 9) {
+                           } else if ((6<= pf.getId() && pf.getId() <= 10)|pf.getId()==14) {
                                //三田に新聞を持っていく
                                i2.setCan_flag(0);
                            } else {
@@ -193,14 +194,16 @@ public class YearCreateServlet extends HttpServlet {
                             i2.setCreated_at(currentTime);
                             i2.setUpdated_at(currentTime);
                             i2.setAim(pf.getDefault_vo());
+                            i2.setAimconst(pf.getDefault_vo());
                             if (1<= pf.getId() && pf.getId()<=5) {
                                 //日吉に新聞を持っていく
                                 i2.setCan_flag(1);
-                            } else if (6<= pf.getId() && pf.getId() <= 9) {
+                            } else if ((6<= pf.getId() && pf.getId() <= 10)|pf.getId()==14) {
                                 //三田に新聞を持っていく
                                 i2.setCan_flag(0);
                             } else {
                                 //それ以外の場所に新聞を持っていく
+
                                 i2.setCan_flag(2);
                             }
                             em.getTransaction().begin();
