@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "default_place",
-            query = "select p from Place as p where p.default_vo > 0"
+            query = "select p from Place as p where p.id < 15"
             ),//デフォルトで配達部数が決まっているのだけ取り出す
 
 })

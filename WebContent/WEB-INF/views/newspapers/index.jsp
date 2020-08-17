@@ -27,7 +27,16 @@
                         <td class="newspaper_rate"><c:out value="${i.rate}"/></td>
                         <c:choose>
                         <c:when test="${i.decision == 0 }">
-                            <td class="report_action"><a href="<c:url value='/newspapers/edit?id=${i.id}' />">編集する</a></td>
+                            <c:choose>
+                                <c:when test="${i.vo_decision == 1 }">
+                                    <td class="report_action"><a href="<c:url value='/newspapers/edit?id=${i.id}' />">発行部数を編集する</a></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td class="report_action"><a href="<c:url value='/newspapers/new?id=${i.id}' />">発行部数を登録する</a></td>
+                                </c:otherwise>
+                            </c:choose>
+
+
                         </c:when>
                         <c:otherwise>
                             <td class="report_action">なし</td>
