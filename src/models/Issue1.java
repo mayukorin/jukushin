@@ -31,7 +31,12 @@ import utils.DBUtil;
             ),
     @NamedQuery(
             name="selected_year",
-            query = "select i from Issue1 as i where i.company = :company and i.newspaper.year = :year")
+            query = "select i from Issue1 as i where i.company = :company and i.newspaper.year = :year"
+            ),
+    @NamedQuery(
+            name="getmonthnews",
+            query = "select i from Issue1 as i where i.company = :company and i.newspaper.month = :month and i.decision = :decision order by i.newspaper.year"
+                  )
 
 })
 @Table(name="issue1")

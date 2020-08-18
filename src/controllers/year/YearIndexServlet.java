@@ -63,7 +63,7 @@ public class YearIndexServlet extends HttpServlet {
             year_rate.add(year);
 
             Double rate = em.createNamedQuery("average_rate",Double.class).setParameter("year",year).setParameter("company",c).getSingleResult();//その会社の、その年の新聞のハケ率
-            if (rate != 0) {
+            if (rate != null && rate != 0) {
                 flag = 1;
             }
             year_rate.add(rate);
