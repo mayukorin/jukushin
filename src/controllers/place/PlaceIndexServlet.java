@@ -53,10 +53,12 @@ public class PlaceIndexServlet extends HttpServlet {
 
         try {
                 i1 = em.find(Issue1.class,Integer.parseInt(request.getParameter("id")));
-                request.getSession().setAttribute("i1",i1);//詳細を見るIssue1を格納
+                request.getSession().setAttribute("i1_id",i1.getId());//詳細を見るIssue1のidを格納
         } catch (Exception e) {
-            i1 = (Issue1) request.getSession().getAttribute("i1");
+            i1 = em.find(Issue1.class,((Integer) request.getSession().getAttribute("i1_id")));
         }
+
+        request.setAttribute("i1", i1);
 
 
         //キャンパスごとの新聞ごとのotherplaceを取り出す。

@@ -1,9 +1,12 @@
 package models;
 
 import java.sql.Timestamp;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,6 +16,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+
+import utils.DBUtil;
 
 @Entity
 @NamedQueries({
@@ -150,6 +155,55 @@ public class Issue2 {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Long cacultate(Integer flag,Issue1 i1) {
+        EntityManager em = DBUtil.createEntityManager();
+
+        List<Issue2> othes_m = em.createNamedQuery("getcanplaces",Issue2.class).setParameter("flag", flag).setParameter("company",this.getCompany()).setParameter("newspapaer",this.getNewspaper()).getResultList();
+        Long m_con=0L;
+        Long mm=0L;
+
+        Iterator<Issue2> it = othes_m.iterator();
+        while(it.hasNext()) {
+            Issue2 oo = it.next();
+
+            if (flag==0) {
+
+                if (oo.getAct()==0|oo.getPlace().getName().equals("三田ラック")|oo.getPlace().getName().equals("研究室棟")) {
+                    m_con+=oo.getAim();
+                } else {
+                    m_con+=oo.getAct();
+                }
+            } else if (flag==1) {
+                if (oo.getAct()==0|oo.getPlace().equals("日吉ラック")|oo.getPlace().equals("矢上ラック")) {
+                    m_con+=oo.getAim();
+                } else {
+                    m_con+=oo.getAct();
+                }
+            }
+
+        }
+
+        if (flag ==0) {
+            mm=i1.getMita()-m_con;
+
+            if (mm <0) {
+                mm=0L;
+
+            }
+
+        } else if (flag==1) {
+            mm=i1.getHiyoshi()-m_con;
+
+            if (mm <0) {
+                mm=0L;
+
+            }
+        }
+
+
+        return mm;
     }
 
 
