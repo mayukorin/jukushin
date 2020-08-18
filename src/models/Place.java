@@ -15,6 +15,9 @@ import javax.persistence.Table;
             name = "default_place",
             query = "select p from Place as p where p.id < 15"
             ),//デフォルトで配達部数が決まっているのだけ取り出す
+    @NamedQuery(
+            name = "place_exit",
+            query = "select p from Place as p where p.name = :name")
 
 })
 @Table(name="place")

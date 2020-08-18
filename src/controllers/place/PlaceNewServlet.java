@@ -55,7 +55,7 @@ public class PlaceNewServlet extends HttpServlet {
             remain = i1.cacultate(1);
         }
 
-        request.setAttribute("remain", remain);//あとどれくらい新聞を割り振ることができるか
+        request.getSession().setAttribute("remain", remain);//あとどれくらい新聞を割り振ることができるか
         request.setAttribute("flag", flag);
 
         request.setAttribute("i2", new Issue2());

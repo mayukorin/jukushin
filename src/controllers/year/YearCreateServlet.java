@@ -111,6 +111,8 @@ public class YearCreateServlet extends HttpServlet {
                         i1.setUpdated_at(currentTime);
                         i1.setDecision(0);
                         i1.setVo_decision(0);//まだ発行部数を決めていない
+                        i1.setHiyoshi_a(0L);
+                        i1.setMita_a(0L);
 
                         //////////////////////////////////
 
@@ -132,6 +134,7 @@ public class YearCreateServlet extends HttpServlet {
                            i2.setCreated_at(currentTime);
                            i2.setUpdated_at(currentTime);
                            i2.setAim(pf.getDefault_vo());
+                           i2.setAct(0L);
                            i2.setAimconst(pf.getDefault_vo());
                            if (1<= pf.getId() && pf.getId()<=5) {
                                //日吉に新聞を持っていく
@@ -177,6 +180,9 @@ public class YearCreateServlet extends HttpServlet {
                         i1.setUpdated_at(currentTime);
                         i1.setDecision(0);
                         i1.setVo_decision(0);//まだ発行部数を決めていない
+                        i1.setHiyoshi_a(0L);
+                        i1.setMita_a(0L);
+
 
 
                         em.getTransaction().begin();
@@ -195,6 +201,7 @@ public class YearCreateServlet extends HttpServlet {
                             i2.setUpdated_at(currentTime);
                             i2.setAim(pf.getDefault_vo());
                             i2.setAimconst(pf.getDefault_vo());
+                            i2.setAct(0L);
                             if (1<= pf.getId() && pf.getId()<=5) {
                                 //日吉に新聞を持っていく
                                 i2.setCan_flag(1);

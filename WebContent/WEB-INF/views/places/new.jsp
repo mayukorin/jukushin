@@ -4,7 +4,7 @@
     <c:param name="content">
         <h2>新規配布場所登録ページ</h2>
 
-        <form method="POST" action="<c:url value='/places/create?id=${flag}'/>">
+        <form method="POST" action="<c:url value='/places/create?id=${i2.can_flag}'/>">
             <c:if test="${errors != null }">
                 <div id="flush_error">
                     入力内容にエラーがあります。<br/>
@@ -19,14 +19,14 @@
 
             <label for="mh">日吉か三田</label><br/>
             <select name="mh">
-                <option value="1"<c:if test="${otherplace.can_flag ==0 }">disabled</c:if>>日吉</option>
-                <option value="0"<c:if test="${otherplace.can_flag ==1}">disabled</c:if>>三田</option>
+                <option value="1"<c:if test="${i2.can_flag ==0 && flag != 0}">disabled</c:if>>日吉</option>
+                <option value="0"<c:if test="${i2.can_flag ==1 && flag != 0}">disabled</c:if>>三田</option>
             </select>
             <br/><br/>
 
             <label for="aim">配布目標数</label><br/>
             <select name="aim">
-                <c:forEach var="i" begin="1" end="${remain}" step="1">
+                <c:forEach var="i" begin="1" end="${sessionScope.remain}" step="1">
                     <option value="${i}">${i}</option>
                 </c:forEach>
 
