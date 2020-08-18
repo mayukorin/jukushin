@@ -43,7 +43,7 @@ public class PlaceEditActualServlet extends HttpServlet {
 
         Long remain = i1.cacultate(i2.getCan_flag());//実際の数を編集しようとしている場所で、もともとの発行部数に、想定目標が届いているか確認する。
 
-        if (remain > 0) {
+        if (remain > 0 && i2.getAct() == 0) {
 
             response.sendRedirect(request.getContextPath()+"/place/index");
 
