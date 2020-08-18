@@ -23,7 +23,7 @@ import utils.DBUtil;
 @NamedQueries({
     @NamedQuery(
             name = "average_rate",
-            query = "select avg(i.rate) from Issue1 as i where i.newspaper.year = :year and i.company = :company"
+            query = "select avg(i.rate) from Issue1 as i where i.newspaper.year = :year and i.company = :company and i.rate > 0"
             ),
     @NamedQuery(
             name="collect_year",
@@ -254,7 +254,7 @@ public class Issue1 {
     public Long cacultate(Integer flag) {
         EntityManager em = DBUtil.createEntityManager();
 
-        List<Issue2> othes_m = em.createNamedQuery("getcanplaces",Issue2.class).setParameter("flag", flag).setParameter("company",this.getCompany()).setParameter("newspapaer",this.getNewspaper()).getResultList();
+        List<Issue2> othes_m = em.createNamedQuery("getcanplaces",Issue2.class).setParameter("flag", flag).setParameter("company",this.getCompany()).setParameter("newspaper",this.getNewspaper()).getResultList();
         Long m_con=0L;
         Long mm=0L;
 

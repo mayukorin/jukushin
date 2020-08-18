@@ -19,8 +19,8 @@
 
             <label for="mh">日吉か三田</label><br/>
             <select name="mh">
-                <option value="1"<c:if test="${i2.can_flag ==0 && flag != 0}">disabled</c:if>>日吉</option>
-                <option value="0"<c:if test="${i2.can_flag ==1 && flag != 0}">disabled</c:if>>三田</option>
+                <option value="1"<c:if test="${flag == 1}">disabled</c:if>>日吉</option>
+                <option value="0"<c:if test="${flag == 2}">disabled</c:if>>三田</option>
             </select>
             <br/><br/>
 
