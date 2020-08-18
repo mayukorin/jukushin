@@ -25,21 +25,9 @@
         <button type="submit">登録</button>
 
         </form>
-
         <p><a href="${pageContext.request.contextPath}/newspapers/index">一覧に戻る</a></p>
 
-        <a href="#" onclick="confirmDestroy();">この月を削除する</a>
 
-        <form method="POST" action="${pageContext.request.contextPath}/newspaper/destroy?id=${news.id}">
-            <input type="hidden" name="_token" value="${_token}"/>
-        </form>
-        <script>
-        function confirmDestroy() {
-            if (confirm("本当に削除してよろしいてすか？")) {
-                document.forms[1].submit();
-            }
-        }
-        </script>
 
     </c:param>
 </c:import>
