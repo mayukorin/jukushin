@@ -52,13 +52,13 @@ public class PlaceEditServlet extends HttpServlet {
             Long remain = 0L;
             if (i2.getCan_flag()==0) {
                 //三田
-                remain = i2.cacultate(0, i1);
+                remain = i1.cacultate(0);
 
                 request.setAttribute("remain", remain);
 
             } else {
                 //日吉
-                remain = i2.cacultate(1, i1);
+                remain = i1.cacultate(1);
 
                 request.setAttribute("remain", remain);
             }

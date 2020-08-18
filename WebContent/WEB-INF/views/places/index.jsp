@@ -253,7 +253,7 @@
            </c:forEach>
            <c:if test="${decision == 0}">
                 <tr class="row2">
-                    <td class="place_name">${sessionScope.i1.newspaper.month}月号の残部</td>
+                    <td class="place_name">${i1.newspaper.month}月号の残部</td>
                     <td class="place_aim"><c:out value="${i1.remain}"/></td>
                     <td class="place_act"><c:out value="${i1.remainact}"/></td>
                     <td class="place_action">なし</td>
@@ -265,12 +265,12 @@
         </table>
         <c:choose>
             <c:when test="${decision == 0}">
-                <p><a href="<c:url value='/places/new'/>">新規配布場所の登録</a></p>
+                <p><a href="<c:url value='/places/new?flag=0'/>">新規配布場所の登録</a></p>
                 <p><a href="<c:url value='/places/decide'/>"><button type="submit">日吉と三田の部数を確定させる</button></a></p>
             </c:when>
             <c:otherwise>
-              <p><a href="<c:url value='/places/newh'/>">日吉からの新規配布場所の登録</a></p>
-              <p><a href="<c:url value='/places/newm'/>">三田からの新規配布場所の登録</a></p>
+              <p><a href="<c:url value='/places/new?flag=2'/>">日吉からの新規配布場所の登録</a></p>
+              <p><a href="<c:url value='/places/new?flag=1'/>">三田からの新規配布場所の登録</a></p>
               <c:if test="${i1.mita_a >0 or i1.hiyoshi_a >0 }">
               <p><a href="<c:url value='/chart/bo'/>">他の年と比較する</a></p>
               </c:if>
