@@ -196,7 +196,7 @@
                                <td class="place_action">
                                <c:choose>
                                <c:when test="${i1.hiyoshi_a > 0 }">
-                               <p><a href="<c:url value='/otherplaces/circle?id=1'/>">図で見る</a></p>
+                               <p><a href="<c:url value='/places/circle?id=1'/>">図で見る</a></p>
                                </c:when>
                                <c:otherwise>
                                なし

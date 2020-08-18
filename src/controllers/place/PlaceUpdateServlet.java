@@ -81,6 +81,7 @@ public class PlaceUpdateServlet extends HttpServlet {
             i2.setAim(Long.parseLong(request.getParameter("aim")));
 
             if (i1.getDecision()==0) {
+                //振り分け確定前
                 i2.setAimconst(Long.parseLong(request.getParameter("aim")));//固定の値の目標を変更
             }
 

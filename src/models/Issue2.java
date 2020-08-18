@@ -24,6 +24,10 @@ import utils.DBUtil;
     @NamedQuery(
             name="getcanplaces",
             query="select i2 from Issue2 as i2 where i2.can_flag = :flag and i2.company = :company and i2.newspaper = :newspaper"),
+    @NamedQuery(
+            name="top5places",
+            query="SELECT i2 FROM Issue2 AS i2 WHERE i2.can_flag=:can_flag and i2.company = :company and i2.newspaper = :newspaper ORDER BY i2.act DESC"),
+
 
 
 })

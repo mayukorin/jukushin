@@ -57,9 +57,21 @@ public class PlaceUpdateActual extends HttpServlet {
                 errors.add("実質配布数を入力してください。");
                 request.setAttribute("errors", errors);
 
+
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/places/edita.jsp");
+                rd.forward(request,response);
+            }  else if (Integer.parseInt(act_str) < 0) {
+                em.close();
+                request.setAttribute("_token", request.getSession().getId());
+                request.setAttribute("i2", i2);
+                List<String> errors= new ArrayList<String>();
+                errors.add("実際配布数には正の数を入力してください。");
+                request.setAttribute("errors", errors);
+
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/places/edita.jsp");
                 rd.forward(request,response);
             } else {
+
 
 
                 Issue1 i1 = em.find(Issue1.class, (Integer)request.getSession().getAttribute("i1_id"));
