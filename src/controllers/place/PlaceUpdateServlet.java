@@ -43,6 +43,7 @@ public class PlaceUpdateServlet extends HttpServlet {
             Issue2 i2 = em.find(Issue2.class,((Integer) request.getSession().getAttribute("i2_id")));
 
 
+
             if (i1.getDecision()==0) {
                 //振り分け確定前
 
@@ -50,20 +51,28 @@ public class PlaceUpdateServlet extends HttpServlet {
                 //全体の残部を更新する
                 i1.setRemain(i1.getRemain()+i2.getAim()-Integer.parseInt(request.getParameter("aim")));
 
-                if (i2.getCan_flag()==Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==1) {
-                    //元々配達場所が日吉のものがそのまま日吉。部数だけ更新
-                    i1.setHiyoshi(i1.getHiyoshi()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
-                } else if (i2.getCan_flag()==Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==0) {
-                    //元々配達場所が三田のものがそのまま三田。部数だけ更新
-                    i1.setMita(i1.getMita()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
-                } else if (i2.getCan_flag()!=Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==1) {
-                    //元々の配達場所が三田のものが日吉になった。
-                    i1.setMita(i1.getMita()-i2.getAim());
-                    i1.setHiyoshi(i1.getHiyoshi()+Integer.parseInt(request.getParameter("aim")));
-                } else {
-                    //元々の配達場所が日吉のものが三田になった。
-                    i1.setHiyoshi(i1.getHiyoshi()-i2.getAim());
-                    i1.setMita(i1.getMita()+Integer.parseInt(request.getParameter("aim")));
+                if (i2.getCan_flag() != 2) {
+
+                    if (i2.getCan_flag()==Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==1) {
+                        //元々配達場所が日吉のものがそのまま日吉。部数だけ更新
+                        i1.setHiyoshi(i1.getHiyoshi()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
+                    } else if (i2.getCan_flag()==Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==0) {
+                        //元々配達場所が三田のものがそのまま三田。部数だけ更新
+                        i1.setMita(i1.getMita()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
+                    } else if (i2.getCan_flag()!=Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==1) {
+                        //元々の配達場所が三田のものが日吉になった。
+                        i1.setMita(i1.getMita()-i2.getAim());
+                        i1.setHiyoshi(i1.getHiyoshi()+Integer.parseInt(request.getParameter("aim")));
+                    } else {
+                        //元々の配達場所が日吉のものが三田になった。
+                        i1.setHiyoshi(i1.getHiyoshi()-i2.getAim());
+                        i1.setMita(i1.getMita()+Integer.parseInt(request.getParameter("aim")));
+                    }
+                    i2.setCan_flag(Integer.parseInt(request.getParameter("mh")));
+                } else if (i2.getCan_flag() == 2) {
+                    //それ以外の配布場所
+                    i1.setOther(i1.getOther()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
+                    i2.setCan_flag(2);
                 }
 
             }
@@ -74,7 +83,7 @@ public class PlaceUpdateServlet extends HttpServlet {
             if (i1.getDecision()==0) {
                 i2.setAimconst(Long.parseLong(request.getParameter("aim")));//固定の値の目標を変更
             }
-            i2.setCan_flag(Integer.parseInt(request.getParameter("mh")));
+
 
             i2.setContent(request.getParameter("content"));
             i2.setUpdated_at(new Timestamp(System.currentTimeMillis()));
