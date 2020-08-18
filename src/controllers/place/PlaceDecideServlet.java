@@ -78,6 +78,7 @@ public class PlaceDecideServlet extends HttpServlet {
 
             i1.setRemain(i1.getVolumn()-hake);///振り分け確定後は、発行部数全て余っているので0にする。
             i1.setHake(hake);//ハケはその他のものだけ追加
+            i1.setOther_a(hake);
             i1.setRate((double) i1.getHake()/i1.getVolumn());
 
             ///更新したデータベースを保存する

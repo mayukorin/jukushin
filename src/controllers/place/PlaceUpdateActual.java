@@ -97,8 +97,8 @@ public class PlaceUpdateActual extends HttpServlet {
                 }
                 i2.setAct(Long.parseLong(act_str));//otherplaceの方に、実際の数を入れる。
 
-                i1.setRemain(i1.getRemain()-i2.getAct());///実際にはけた分だけ全体からあまりを引く。
-                i1.setHake(i1.getHake()+i2.getAct());//新聞のハケ数の方にカウントさせる。
+                i1.setRemain(i1.getRemain()-i1.getHiyoshi_a()-i1.getMita_a()-i1.getOther_a());///実際にはけた分だけ全体からあまりを引く。
+                i1.setHake(i1.getMita_a()+i1.getHiyoshi_a()+i1.getOther_a());//新聞のハケ数の方にカウントさせる。
                 i1.setRate((double)i1.getHake()/i1.getVolumn());
 
                 em.getTransaction().begin();
