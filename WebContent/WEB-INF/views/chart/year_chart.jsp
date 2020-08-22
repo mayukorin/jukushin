@@ -67,7 +67,7 @@
 
   </script>
 
-<p><a href="<c:url value='/index.html'/>">年度別ハケ率一覧に戻る</a></p>
+<p><a href="<c:url value='/index.html'/>">年度別新聞ハケ率一覧に戻る</a></p>
 
 
     </c:param>

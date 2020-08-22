@@ -65,6 +65,6 @@
       }
     });
     </script>
-<p><a href="<c:url value='/place/index'/>">ハケ状況一覧に戻る</a></p>
+<p><a href="<c:url value='/place/index'/>">${sessionScope.month}月ハケ状況一覧に戻る</a></p>
 </c:param>
 </c:import>

@@ -6,6 +6,8 @@
 
         <form method="POST" action="<c:url value='/companies/create'/>">
             <c:import url="_form.jsp"/>
+            <p><a href="<c:url value='/login'/>">ログイン画面に戻る</a></p>
         </form>
+
     </c:param>
 </c:import>

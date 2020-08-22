@@ -59,6 +59,7 @@ public class PlaceIndexServlet extends HttpServlet {
         }
 
         request.setAttribute("i1", i1);
+        request.getSession().setAttribute("month",i1.getNewspaper().getMonth());
 
 
         //キャンパスごとの新聞ごとのotherplaceを取り出す。

@@ -25,9 +25,7 @@
         <button type="submit">登録</button>
 
         </form>
-        <p><a href="${pageContext.request.contextPath}/newspapers/index">一覧に戻る</a></p>
-
-
+        <p><a href="<c:url value='/newspapers/index'/>">${sessionScope.year}年度月新聞ハケ率一覧に戻る</a></p>
 
     </c:param>
 </c:import>

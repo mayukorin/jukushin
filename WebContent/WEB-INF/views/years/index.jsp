@@ -47,7 +47,7 @@
         </div>
         <p><a href="<c:url value='/years/new'/>">新規年度の登録</a></p>
         <c:if test="${flag==1 }">
-            <p><a href="<c:url value='/chart/annualole'/>">年度別のハケ率をグラフで見る</a><p>
+            <p><a href="<c:url value='/chart/annualole'/>">年度別新聞ハケ率をグラフで見る</a><p>
         </c:if>
     </c:param>
 </c:import>

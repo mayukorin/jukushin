@@ -77,8 +77,6 @@ public class Issue1 {
     @Column(name="remain")
     private Long remain;//残部
 
-    @Column(name="remainact")
-    private Long remainact;//実際の残部
 
     @Column(name="hiyoshi")
     private Long hiyoshi;//日吉への割り当て
@@ -184,13 +182,6 @@ public class Issue1 {
         this.remain = remain;
     }
 
-    public Long getRemainact() {
-        return remainact;
-    }
-
-    public void setRemainact(Long remainact) {
-        this.remainact = remainact;
-    }
 
     public Long getHiyoshi() {
         return hiyoshi;

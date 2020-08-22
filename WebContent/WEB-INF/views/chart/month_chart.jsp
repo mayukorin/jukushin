@@ -65,6 +65,6 @@
       }
     });
     </script>
-
+ <p><a href="<c:url value='/newspapers/index'/>">月別新聞ハケ率一覧に戻る</a></p>
 </c:param>
 </c:import>

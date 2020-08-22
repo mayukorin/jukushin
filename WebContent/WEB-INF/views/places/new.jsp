@@ -42,6 +42,7 @@
 
 
         </form>
+        <p><a href="<c:url value='/place/index'/>">${sessionScope.month}月のハケ状況一覧に戻る</a></p>
     </c:param>
 
 </c:import>

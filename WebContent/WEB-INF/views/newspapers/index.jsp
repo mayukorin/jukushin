@@ -72,9 +72,10 @@
                 </c:choose>
             </c:forEach>
         </div>
-        <p><a href="<c:url value='/index.html'/>">年度別ハケ率一覧に戻る</a>
-        <c:if test="${flag ==1 }">
-            <p><a href="<c:url value='/chart/ore?id=${year}'/>">ハケ率をグラフで見る</a></p>
+         <c:if test="${flag ==1 }">
+            <p><a href="<c:url value='/chart/ore?id=${year}'/>">月別新聞ハケ率をグラフで見る</a></p>
         </c:if>
+        <p><a href="<c:url value='/index.html'/>">年度別ハケ率一覧に戻る</a>
+
     </c:param>
 </c:import>
