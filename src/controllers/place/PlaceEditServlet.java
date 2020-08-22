@@ -68,6 +68,7 @@ public class PlaceEditServlet extends HttpServlet {
 
         request.setAttribute("i2",i2);
         request.setAttribute("_token", request.getSession().getId());
+        request.setAttribute("decision", i1.getDecision());
 
 
         em.close();

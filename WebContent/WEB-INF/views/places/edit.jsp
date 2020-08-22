@@ -19,18 +19,26 @@
                     <br/><br/>
 
                     <label for="mh">新聞の置き場所</label><br/>
+                    <select name="mh">
                     <c:choose>
-                        <c:when test="${i2.can_flag !=2 }">
-                            <select name="mh">
-
-                                <option value="1"<c:if test="${i2.can_flag ==1 }">selected</c:if>>日吉</option>
-                                <option value="0"<c:if test="${i2.can_flag ==0 }">selected</c:if>>三田</option>
-                            </select>
+                        <c:when test="${decision == 0}">
+                            <option value="1">日吉</option>
+                            <option value="0">三田</option>
+                            <option value="2">その他の場所</option>
                         </c:when>
-                        <c:otherwise>
+                    <c:otherwise>
+                        <c:choose>
+                            <c:when test="${i2.can_flag != 2}">
+                                <option value="1"<c:if test="${flag == 1}">disabled</c:if>>日吉</option>
+                                <option value="0"<c:if test="${flag == 2}">disabled</c:if>>三田</option>
+                            </c:when>
+                            <c:otherwise>
                                 <c:out value="その他の場所"/>
-                        </c:otherwise>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:otherwise>
                     </c:choose>
+                    </select>
 
                     <br/><br/>
 
