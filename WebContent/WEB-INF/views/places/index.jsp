@@ -89,23 +89,44 @@
                             <th class="place_act2">配布見込み</th>
                             <th class="place_action">操作</th>
                         </tr>
-                        <tr class="row2">
-                            <td class="place_name">三田</td>
-                            <td class="place_aim"><c:out value="${i1.mita}"/></td>
-                            <td class="place_act1"><c:out value="${i1.mita_a}"/></td>
-                            <td class="place_act2"><c:out value="${m}"/></td>
-                            <td class="place_action">
-                            <c:choose>
-                            <c:when test="${i1.mita_a > 0 }">
-                            <p><a href="<c:url value='/places/circle?id=0'/>">図で見る</a></p>
-                            </c:when>
-                            <c:otherwise>
-                            なし
-                            </c:otherwise>
-                            </c:choose>
-
-                            </td>
-                        </tr>
+                        <c:choose>
+                        <c:when test="${mm == 0 }">
+                            <tr class="row2">
+                                <td class="place_name">三田</td>
+                                <td class="place_aim"><c:out value="${i1.mita}"/></td>
+                                <td class="place_act1"><c:out value="${i1.mita_a}"/></td>
+                                <td class="place_act2"><c:out value="${m}"/></td>
+                                <td class="place_action">
+                                <c:choose>
+                                <c:when test="${i1.mita_a > 0 }">
+                                <p><a href="<c:url value='/places/circle?id=0'/>">図で見る</a></p>
+                                </c:when>
+                                <c:otherwise>
+                                なし
+                                </c:otherwise>
+                                </c:choose>
+                                </td>
+                            </tr>
+                        </c:when>
+                        <c:otherwise>
+                            <tr class="row4">
+                                <td class="place_name">三田</td>
+                                <td class="place_aim"><c:out value="${i1.mita}"/></td>
+                                <td class="place_act1"><c:out value="${i1.mita_a}"/></td>
+                                <td class="place_act2"><c:out value="${m}"/></td>
+                                <td class="place_action">
+                                <c:choose>
+                                <c:when test="${i1.mita_a > 0 }">
+                                <p><a href="<c:url value='/places/circle?id=0'/>">図で見る</a></p>
+                                </c:when>
+                                <c:otherwise>
+                                なし
+                                </c:otherwise>
+                                </c:choose>
+                                </td>
+                            </tr>
+                        </c:otherwise>
+                        </c:choose>
                     </c:otherwise>
                 </c:choose>
             </tbody>
@@ -192,23 +213,47 @@
                                 <th class="place_act2">配布見込み</th>
                                 <th class="place_action">操作</th>
                             </tr>
-                            <tr class="row2">
-                               <td class="place_name">日吉</td>
-                               <td class="place_aim"><c:out value="${i1.hiyoshi}"/></td>
-                               <td class="place_act1"><c:out value="${i1.hiyoshi_a}"/></td>
-                               <td class="place_act2"><c:out value="${h}"/></td>
-                               <td class="place_action">
-                               <c:choose>
-                               <c:when test="${i1.hiyoshi_a > 0 }">
-                               <p><a href="<c:url value='/places/circle?id=1'/>">図で見る</a></p>
-                               </c:when>
-                               <c:otherwise>
-                               なし
-                               </c:otherwise>
+                            <c:choose>
+                            <c:when test="${hh == 0 }">
+                                <tr class="row2">
+                                   <td class="place_name">日吉</td>
+                                   <td class="place_aim"><c:out value="${i1.hiyoshi}"/></td>
+                                   <td class="place_act1"><c:out value="${i1.hiyoshi_a}"/></td>
+                                   <td class="place_act2"><c:out value="${h}"/></td>
+                                   <td class="place_action">
+                                   <c:choose>
+                                   <c:when test="${i1.hiyoshi_a > 0 }">
+                                   <p><a href="<c:url value='/places/circle?id=1'/>">図で見る</a></p>
+                                   </c:when>
+                                   <c:otherwise>
+                                   なし
+                                   </c:otherwise>
 
-                               </c:choose>
-                               </td>
-                            </tr>
+                                   </c:choose>
+                                   </td>
+                                </tr>
+                            </c:when>
+                            <c:otherwise>
+                                <tr class="row4">
+                                    <td class="place_name">日吉</td>
+                                    <td class="place_aim"><c:out value="${i1.hiyoshi}"/></td>
+                                    <td class="place_act1"><c:out value="${i1.hiyoshi_a}"/></td>
+                                    <td class="place_act2"><c:out value="${h}"/></td>
+                                    <td class="place_action">
+                                    <c:choose>
+                                    <c:when test="${i1.hiyoshi_a > 0 }">
+                                    <p><a href="<c:url value='/places/circle?id=1'/>">図で見る</a></p>
+                                    </c:when>
+                                    <c:otherwise>
+                                    なし
+                                    </c:otherwise>
+
+                                    </c:choose>
+                                    </td>
+                                </tr>
+                            </c:otherwise>
+                        </c:choose>
+
         </c:otherwise>
         </c:choose>
         </tbody>

@@ -139,7 +139,7 @@ public class PlaceIndexServlet extends HttpServlet {
 
             if (i1.getMita()-m_con > 0) {
                 mm=i1.getMita()-m_con;
-                errors.add("このままの目標設定だと三田で残部が出てしまいます。\n実際の配布数を登録・更新するには、あと"+mm+"部を三田の目標に割り振る必要があります。");
+                errors.add("このままの配布見込みだと三田で残部が出てしまいます。\n実際の配布数を登録・更新するには、あと"+mm+"部を三田の目標に割り振る必要があります。");
 
             } else {
                 mm=0L;
@@ -151,7 +151,7 @@ public class PlaceIndexServlet extends HttpServlet {
 
             if (i1.getHiyoshi()-h_con > 0) {
                 hh=i1.getHiyoshi()-h_con;
-                errors.add("このままの目標設定だと日吉で残部が出てしまいます。\n実際の配布数を登録・更新するには、あと"+hh+"部を日吉に目標に割り振る必要があります。");
+                errors.add("このままの配布見込みだと日吉で残部が出てしまいます。\n実際の配布数を登録・更新するには、あと"+hh+"部を日吉に目標に割り振る必要があります。");
 
             } else {
                 hh=0L;
