@@ -63,16 +63,35 @@ public class PlaceUpdateServlet extends HttpServlet {
                         //元々の配達場所が三田のものが日吉になった。
                         i1.setMita(i1.getMita()-i2.getAim());
                         i1.setHiyoshi(i1.getHiyoshi()+Integer.parseInt(request.getParameter("aim")));
-                    } else {
+                    } else if (i2.getCan_flag()!=Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==0) {
                         //元々の配達場所が日吉のものが三田になった。
                         i1.setHiyoshi(i1.getHiyoshi()-i2.getAim());
                         i1.setMita(i1.getMita()+Integer.parseInt(request.getParameter("aim")));
+                    } else if (i2.getCan_flag() ==  1 &&Integer.parseInt(request.getParameter("mh"))==2) {
+                        //元々の配達場所が日吉のものがその他の場所になった
+                        i1.setHiyoshi(i1.getHiyoshi()-i2.getAim());
+                        i1.setOther(i1.getOther()+Integer.parseInt(request.getParameter("aim")));
+                    } else if (i2.getCan_flag() == 0 &&Integer.parseInt(request.getParameter("mh"))==2) {
+                        //元々の配達場所が三田のものが日吉になった
+                        i1.setMita(i1.getMita()-i2.getAim());
+                        i1.setOther(i1.getOther()+Integer.parseInt(request.getParameter("aim")));
                     }
                     i2.setCan_flag(Integer.parseInt(request.getParameter("mh")));
                 } else if (i2.getCan_flag() == 2) {
                     //それ以外の配布場所
-                    i1.setOther(i1.getOther()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
-                    i2.setCan_flag(2);
+                    if (Integer.parseInt(request.getParameter("mh"))==2) {
+                        //そのままその他の配布場所
+                        i1.setOther(i1.getOther()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
+                    } else if (Integer.parseInt(request.getParameter("mh"))==0) {
+                        //配布場所が三田になった
+                        i1.setOther(i1.getOther()-i2.getAim());
+                        i1.setMita(i1.getMita()+Integer.parseInt(request.getParameter("aim")));
+                    } else if (Integer.parseInt(request.getParameter("mh"))==1) {
+                        //配布場所が日吉になった
+                        i1.setOther(i1.getOther()-i2.getAim());
+                        i1.setHiyoshi(i1.getHiyoshi()+Integer.parseInt(request.getParameter("aim")));
+                    }
+                    i2.setCan_flag(Integer.parseInt(request.getParameter("mh")));
                 }
 
             }

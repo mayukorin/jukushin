@@ -22,9 +22,9 @@
                     <select name="mh">
                     <c:choose>
                         <c:when test="${decision == 0}">
-                            <option value="1">日吉</option>
-                            <option value="0">三田</option>
-                            <option value="2">その他の場所</option>
+                            <option value="1"<c:if test="${i2.can_flag == 1}">selected</c:if>>日吉</option>
+                            <option value="0"<c:if test="${i2.can_flag == 0}">selected</c:if>>三田</option>
+                            <option value="2"<c:if test="${i2.can_flag == 2}">selected</c:if>>その他の場所</option>
                         </c:when>
                     <c:otherwise>
                         <c:choose>
