@@ -183,7 +183,7 @@
                         <td class="place_action"><a href="<c:url value='/places/show?id=${pl.id}'/>">詳細を見る</a></td>
                     </tr>
                     </c:when>
-                    <c:when test="${decision == 1 && pl.act > pl.aimconst }">
+                    <c:when test="${decision == 1 && pl.act >= pl.aimconst }">
                     <tr class="row1">
                         <td class="place_name"><c:out value="${pl.place.name}"/></td>
                         <td class="place_aim"><c:out value="${pl.aimconst}"/></td>
@@ -215,38 +215,7 @@
                         <td class="place_action"><a href="<c:url value='/places/show?id=${pl.id}'/>">詳細を見る</a></td>
                     </tr>
                     </c:when>
-                    <c:when test="${decision == 0 && pl.act > pl.aim }">
-                    <tr class="row0">
-                        <td class="place_name"><c:out value="${pl.place.name}"/></td>
-                        <td class="place_aim"><c:out value="${pl.aimconst}"/></td>
-                        <c:choose>
-                            <c:when test="${decision == 0 }">
-                                <td class="place_act"><c:out value="${pl.act}"/></td>
-                            </c:when>
-                            <c:otherwise>
-                                <td class="place_act1"><c:out value="${pl.act}"/></td>
-                                <td class="place_act2">
-                                    <c:choose>
-                                        <c:when test="${pl.act == 0  or pl.place.name=='三田ラック' or pl.place.name=='研究室棟'}">
-                                        <c:choose>
-                                            <c:when test="${pl.act >pl.aim }">
-                                                <c:out value="${pl.act }"/>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <c:out value="${pl.aim }"/>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:out value="${pl.act}"/>
-                                        </c:otherwise>
-                                    </c:choose>
-                                </td>
-                            </c:otherwise>
-                        </c:choose>
-                        <td class="place_action"><a href="<c:url value='/places/show?id=${pl.id}'/>">詳細を見る</a></td>
-                    </tr>
-                    </c:when>
+
                     <c:otherwise>
                     <tr class="row4">
                         <td class="place_name"><c:out value="${pl.place.name}"/></td>
@@ -408,8 +377,9 @@
                             <td class="place_action"><a href="<c:url value='/places/show?id=${plm.id}'/>">詳細を見る</a></td>
                         </tr>
                         </c:when>
-                        <c:when test="${decision == 1 && plm.act > plm.aim}">
-                            <tr class="row0">
+
+                        <c:when test="${decision == 0}">
+                            <tr class="row${status.count % 2 }">
                             <td class="place_name"><c:out value="${plm.place.name}"/></td>
                             <td class="place_aim"><c:out value="${plm.aimconst}"/></td>
                             <c:choose>
@@ -438,8 +408,8 @@
                             <td class="place_action"><a href="<c:url value='/places/show?id=${plm.id}'/>">詳細を見る</a></td>
                         </tr>
                         </c:when>
-                        <c:when test="${decision == 0}">
-                            <tr class="row${status.count % 2 }">
+                        <c:when test="${decision == 1 && plm.act >= plm.aimconst}">
+                            <tr class="row1">
                             <td class="place_name"><c:out value="${plm.place.name}"/></td>
                             <td class="place_aim"><c:out value="${plm.aimconst}"/></td>
                             <c:choose>
