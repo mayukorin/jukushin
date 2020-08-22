@@ -361,7 +361,7 @@
                                     <td class="place_act"><c:out value="${plm.act}"/></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td class="place_act1"><c:out value="${pl.aim}"/></td>
+                                    <td class="place_act1"><c:out value="${plm.aim}"/></td>
                                     <td class="place_act1"><c:out value="${plm.act}"/></td>
                                     <c:choose>
                                         <c:when test="${plm.act==0 or plm.place.name=='日吉ラック' or plm.place.name=='矢上ラック'}">
@@ -393,7 +393,7 @@
                                     <td class="place_act"><c:out value="${plm.act}"/></td>
                                 </c:when>
                                 <c:otherwise>
-                                    <td class="place_act1"><c:out value="${pl.aim}"/></td>
+                                    <td class="place_act1"><c:out value="${plm.aim}"/></td>
                                     <td class="place_act1"><c:out value="${plm.act}"/></td>
                                     <c:choose>
                                         <c:when test="${plm.act==0 or plm.place.name=='日吉ラック' or plm.place.name=='矢上ラック'}">
@@ -556,10 +556,13 @@
                 <p><a href="<c:url value='/places/decide'/>"><button type="submit">日吉と三田の部数を確定させる</button></a></p>
             </c:when>
             <c:otherwise>
-                <c:if test="${mm+hh > 0}">
+                <c:if test="${hh > 0}">
                     <p><a href="<c:url value='/places/new?flag=2'/>">日吉からの新規配布場所の登録</a></p>
+                 </c:if>
+                  <c:if test="${mm > 0}">
                     <p><a href="<c:url value='/places/new?flag=1'/>">三田からの新規配布場所の登録</a></p>
                 </c:if>
+
 
 
 

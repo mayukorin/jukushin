@@ -63,6 +63,7 @@ public class PlaceUpdateServlet extends HttpServlet {
                     } else if (i2.getCan_flag()==Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==0) {
                         //元々配達場所が三田のものがそのまま三田。部数だけ更新
                         i1.setMita(i1.getMita()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
+                        System.out.println("あああああああああ");
                     } else if (i2.getCan_flag()!=Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==1) {
                         //元々の配達場所が三田のものが日吉になった。
                         i1.setMita(i1.getMita()-i2.getAim());
@@ -111,7 +112,7 @@ public class PlaceUpdateServlet extends HttpServlet {
                         if (i1.cacultate(1) - aim >= 0) {
                             //その分の新聞が日吉部室に残っている場合
                             i2.setCan_flag(1);
-                            System.out.println("あああああああああ");
+
                             i2.setAim(aim);
                         } else {
                             errors.add("日吉部室から、その部数の新聞を確保することはできません。");
@@ -130,40 +131,44 @@ public class PlaceUpdateServlet extends HttpServlet {
                         i2.setAim(aim);
                     }
                 }
+            }
+
+            i2.setContent(request.getParameter("content"));
+            i2.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 
 
 
 
-                i2.setContent(request.getParameter("content"));
-                i2.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 
-                if (errors.size() > 0) {
-                    em.close();
+            if (errors.size() > 0) {
+                em.close();
 
-                    request.setAttribute("_token", request.getSession().getId());
-                    request.setAttribute("i2", i2);
-                    request.setAttribute("errors", errors);
-                    request.setAttribute("decision", i1.getDecision());
+                request.setAttribute("_token", request.getSession().getId());
+                request.setAttribute("i2", i2);
+                request.setAttribute("errors", errors);
+                request.setAttribute("decision", i1.getDecision());
 
 
 
-                    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/places/edit.jsp");
-                    rd.forward(request, response);
-                } else {
-                    //データベースを更新
-                    em.getTransaction().begin();
-                    em.getTransaction().commit();
-                    em.close();
-                    request.getSession().setAttribute("flush", "更新が完了しました。");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/places/edit.jsp");
+                rd.forward(request, response);
+            } else {
+                //データベースを更新
+
+
+                em.getTransaction().begin();
+                em.getTransaction().commit();
+                em.close();
+                request.getSession().setAttribute("flush", "更新が完了しました。");
 
 
 
-                    response.sendRedirect(request.getContextPath()+"/place/index");
-                }
+                response.sendRedirect(request.getContextPath()+"/place/index");
             }
         }
     }
 }
+
 
 
 
