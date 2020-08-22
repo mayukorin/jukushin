@@ -29,7 +29,7 @@
                  <tr>
                             <th class="place_name">新聞</th>
                             <th class="place_aim">暫定発行部数</th>
-                            <th class="place_act">残部</th>
+                            <th class="place_act">想定残部</th>
                             <th class="place_action">操作</th>
                 </tr>
                 <tr class="row2">

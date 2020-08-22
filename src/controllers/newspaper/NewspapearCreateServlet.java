@@ -77,6 +77,7 @@ public class NewspapearCreateServlet extends HttpServlet {
                 request.getSession().setAttribute("flush", "発行部数を登録しました。");
                 em.close();
 
+
                 response.sendRedirect(request.getContextPath()+"/newspapers/index");
             }
         }

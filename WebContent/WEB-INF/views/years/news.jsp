@@ -25,6 +25,6 @@
 <button type="submit">登録</button>
 </form>
 
-<p><a href="<c:url value='/index.html'/>">一覧に戻る</a></p>
+<p><a href="<c:url value='/index.html'/>">年度別 新聞ハケ率一覧に戻る</a></p>
 </c:param>
 </c:import>
