@@ -314,8 +314,10 @@
                 <p><a href="<c:url value='/places/decide'/>"><button type="submit">日吉と三田の部数を確定させる</button></a></p>
             </c:when>
             <c:otherwise>
-              <p><a href="<c:url value='/places/new?flag=2'/>">日吉からの新規配布場所の登録</a></p>
-              <p><a href="<c:url value='/places/new?flag=1'/>">三田からの新規配布場所の登録</a></p>
+                <c:if test="${mm+hh > 0}">
+                    <p><a href="<c:url value='/places/new?flag=2'/>">日吉からの新規配布場所の登録</a></p>
+                    <p><a href="<c:url value='/places/new?flag=1'/>">三田からの新規配布場所の登録</a></p>
+                </c:if>
 
 
 

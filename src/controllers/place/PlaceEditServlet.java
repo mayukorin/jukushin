@@ -48,19 +48,21 @@ public class PlaceEditServlet extends HttpServlet {
 
 
         } else {
+            if (i2.getCan_flag() != 2) {
             //振り分け確定後
-            Long remain = 0L;
-            if (i2.getCan_flag()==0) {
-                //三田
-                remain = i1.cacultate(0);
+                Long remain = 0L;
+                if (i2.getCan_flag()==0) {
+                    //三田
+                    remain = i1.cacultate(0);
 
-                request.setAttribute("remain", remain);
+                    request.setAttribute("remain", remain);
 
-            } else {
-                //日吉
-                remain = i1.cacultate(1);
+                } else {
+                    //日吉
+                    remain = i1.cacultate(1);
 
-                request.setAttribute("remain", remain);
+                    request.setAttribute("remain", remain);
+                }
             }
 
 

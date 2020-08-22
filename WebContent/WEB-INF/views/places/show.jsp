@@ -42,7 +42,7 @@
                         <td><fmt:formatDate value="${i2.created_at}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
                     </tr>
                     <tr>
-                        <th>内容</th>
+                        <th>コメント</th>
                         <td>
                             <pre><c:out value="${i2.content}"/></pre>
                         </td>
@@ -63,9 +63,14 @@
                                         <p><a href="<c:url value="/places/edit?id=${i2.id}"/>">この配布の目標数を変更する</a></p>
                                     </c:when>
                                 </c:choose>
-                                <c:if test="${i2.can_flag !=2 }">
-                                    <p><a href="<c:url value="/places/editj?id=${i2.id}"/>">この配布の実際の数を変更する</a></p>
-                                </c:if>
+                                <c:choose>
+                                    <c:when test="${i2.can_flag !=2 }">
+                                        <p><a href="<c:url value="/places/editj?id=${i2.id}"/>">この配布の実際の数を変更する</a></p>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <p><a href="<c:url value="/places/edit?id=${i2.id}"/>">コメントを編集する</a></p>
+                                    </c:otherwise>
+                                </c:choose>
 
 
                     </c:otherwise>
