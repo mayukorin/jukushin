@@ -98,6 +98,7 @@ public class PlaceUpdateServlet extends HttpServlet {
 
             if (i2.getCan_flag() != 2 || i1.getDecision() == 0) {
                 //振り分け確定前か、その他の場所以外を編集しようとしている時
+                System.out.println("maky you happyあいうあいうあいうあいうあいうあいうあいうあいうあいうあいうあいう");
                 i2.setAim(Long.parseLong(request.getParameter("aim")));
             }
 
