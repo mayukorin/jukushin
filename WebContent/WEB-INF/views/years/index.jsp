@@ -49,5 +49,6 @@
         <c:if test="${flag==1 }">
             <p><a href="<c:url value='/chart/annualole'/>">年度別新聞ハケ率をグラフで見る</a><p>
         </c:if>
+        <p><a href="<c:url value='/companies/edit'/>">アカウント情報を編集する</a></p>
     </c:param>
 </c:import>
