@@ -294,15 +294,8 @@
                                 <td class="place_act2"><c:out value="${plo.act}"/></td>
                             </c:otherwise>
                         </c:choose>
-                        <c:choose>
-                            <c:when test="${decision == 0 }">
-                                <td class="place_action">なし</td>
-                            </c:when>
-                            <c:otherwise>
-                                <td class="place_action"><a href="<c:url value='/places/show?id=${plo.id}'/>">詳細を見る</a></td>
 
-                            </c:otherwise>
-                        </c:choose>
+                        <td class="place_action"><a href="<c:url value='/places/show?id=${plo.id}'/>">詳細を見る</a></td>
 
                     </tr>
            </c:forEach>
