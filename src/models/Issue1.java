@@ -27,7 +27,7 @@ import utils.DBUtil;
             ),
     @NamedQuery(
             name="collect_year",
-            query = "select distinct i.newspaper.year from Issue1 as i where i.company = :company order by i.newspaper.year"
+            query = "select distinct i.newspaper.year from Issue1 as i where i.company = :company order by i.newspaper.year desc"
             ),
     @NamedQuery(
             name="selected_year",
