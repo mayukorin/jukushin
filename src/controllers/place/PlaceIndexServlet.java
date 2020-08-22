@@ -115,12 +115,13 @@ public class PlaceIndexServlet extends HttpServlet {
             Iterator<Issue2> ith = othes_h.iterator();
             while(ith.hasNext()) {
                 Issue2 ooo = ith.next();
-                if (ooo.getAct()==0|ooo.getPlace().equals("日吉ラック")|ooo.getPlace().equals("矢上ラック")) {//実際の配布数が0または、配布先が日吉ラック、矢上ラックの時
+                if (ooo.getAct()==0|ooo.getPlace().getName().equals("日吉ラック")|ooo.getPlace().getName().equals("矢上ラック")) {//実際の配布数が0または、配布先が日吉ラック、矢上ラックの時
                     if (ooo.getAct() > ooo.getAim()) {//目標より実際の方が多かった時
                         h_con+=ooo.getAct();
 
                     } else {
                         h_con+=ooo.getAim();
+
                     }
                 } else {
                     h_con+=ooo.getAct();

@@ -125,6 +125,9 @@ public class PlaceUpdateServlet extends HttpServlet {
                         } else {
                             errors.add("三田部室から、その部数の新聞を確保することはできません。");
                         }
+                    } else {
+                        //持ってくる部室の場所は変わらない時
+                        i2.setAim(aim);
                     }
                 }
 

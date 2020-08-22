@@ -266,7 +266,7 @@ public class Issue1 {
                     m_con+=oo.getAct();
                 }
             } else if (flag==1) {
-                if (oo.getAct()==0|oo.getPlace().equals("日吉ラック")|oo.getPlace().equals("矢上ラック")) {
+                if (oo.getAct()==0|oo.getPlace().getName().equals("日吉ラック")|oo.getPlace().getName().equals("矢上ラック")) {
                     m_con+=oo.getAim();
                 } else {
                     m_con+=oo.getAct();
