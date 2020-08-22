@@ -143,6 +143,7 @@
                         </c:when>
                         <c:otherwise>
                             <th class="place_aim">初期目標数</th>
+                            <th class="place_act1">現在の目標数</th>
                             <th class="place_act1">配布済数</th>
                             <th class="place_act2">配布見込み</th>
                         </c:otherwise>
@@ -160,6 +161,7 @@
                                 <td class="place_act"><c:out value="${pl.act}"/></td>
                             </c:when>
                             <c:otherwise>
+                                <td class="place_act1"><c:out value="${pl.aim}"/></td>
                                 <td class="place_act1"><c:out value="${pl.act}"/></td>
                                 <td class="place_act2">
                                     <c:choose>
@@ -192,6 +194,7 @@
                                 <td class="place_act"><c:out value="${pl.act}"/></td>
                             </c:when>
                             <c:otherwise>
+                                <td class="place_act1"><c:out value="${pl.aim}"/></td>
                                 <td class="place_act1"><c:out value="${pl.act}"/></td>
                                 <td class="place_act2">
                                     <c:choose>
@@ -225,6 +228,7 @@
                                 <td class="place_act"><c:out value="${pl.act}"/></td>
                             </c:when>
                             <c:otherwise>
+                                <td class="place_act1"><c:out value="${pl.aim}"/></td>
                                 <td class="place_act1"><c:out value="${pl.act}"/></td>
                                 <td class="place_act2">
                                     <c:choose>
@@ -339,6 +343,7 @@
                         </c:when>
                         <c:otherwise>
                             <th class="place_aim">初期目標数</th>
+                            <th class="place_act1">現在の目標数</th>
                             <th class="place_act1">配布済数</th>
                             <th class="place_act2">配布見込み</th>
                         </c:otherwise>
@@ -356,6 +361,7 @@
                                     <td class="place_act"><c:out value="${plm.act}"/></td>
                                 </c:when>
                                 <c:otherwise>
+                                    <td class="place_act1"><c:out value="${pl.aim}"/></td>
                                     <td class="place_act1"><c:out value="${plm.act}"/></td>
                                     <c:choose>
                                         <c:when test="${plm.act==0 or plm.place.name=='日吉ラック' or plm.place.name=='矢上ラック'}">
@@ -387,6 +393,7 @@
                                     <td class="place_act"><c:out value="${plm.act}"/></td>
                                 </c:when>
                                 <c:otherwise>
+                                    <td class="place_act1"><c:out value="${pl.aim}"/></td>
                                     <td class="place_act1"><c:out value="${plm.act}"/></td>
                                     <c:choose>
                                         <c:when test="${plm.act==0 or plm.place.name=='日吉ラック' or plm.place.name=='矢上ラック'}">
@@ -417,6 +424,7 @@
                                     <td class="place_act"><c:out value="${plm.act}"/></td>
                                 </c:when>
                                 <c:otherwise>
+                                    <td class="place_act1"><c:out value="${plm.aim}"/></td>
                                     <td class="place_act1"><c:out value="${plm.act}"/></td>
                                     <c:choose>
                                         <c:when test="${plm.act==0 or plm.place.name=='日吉ラック' or plm.place.name=='矢上ラック'}">
@@ -447,11 +455,13 @@
                                     <td class="place_act"><c:out value="${plm.act}"/></td>
                                 </c:when>
                                 <c:otherwise>
+                                    <td class="place_act1"><c:out value="${plm.aim}"/></td>
                                     <td class="place_act1"><c:out value="${plm.act}"/></td>
                                     <c:choose>
                                         <c:when test="${plm.act==0 or plm.place.name=='日吉ラック' or plm.place.name=='矢上ラック'}">
                                             <c:choose>
                                                 <c:when test="${plm.act > plm.aim }">
+
                                                     <td class="place_act2"><c:out value="${plm.act}"/></td>
                                                 </c:when>
                                                 <c:otherwise>
