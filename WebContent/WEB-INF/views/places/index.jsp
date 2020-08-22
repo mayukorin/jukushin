@@ -115,12 +115,13 @@
             <tbody>
                 <tr>
                     <th class="place_name">場所</th>
-                    <th class="place_aim">目標数</th>
                     <c:choose>
                         <c:when test="${decision == 0 }">
+                            <th class="place_aim">目標数</th>
                             <th class="place_act">配布済数</th>
                         </c:when>
                         <c:otherwise>
+                            <th class="place_aim">初期目標数</th>
                             <th class="place_act1">配布済数</th>
                             <th class="place_act2">配布見込み</th>
                         </c:otherwise>
@@ -217,12 +218,13 @@
             <tbody>
                 <tr>
                     <th class="place_name">場所</th>
-                    <th class="place_aim">目標数</th>
                     <c:choose>
                         <c:when test="${decision==0 }">
+                            <th class="place_aim">目標数</th>
                             <th class="place_act">配布済数</th>
                         </c:when>
                         <c:otherwise>
+                            <th class="place_aim">初期目標数</th>
                             <th class="place_act1">配布済数</th>
                             <th class="place_act2">配布見込み</th>
                         </c:otherwise>
@@ -269,12 +271,13 @@
             <tbody>
                  <tr>
                     <th class="place_name">場所</th>
-                    <th class="place_aim">目標数</th>
                     <c:choose>
                         <c:when test="${decision == 0 }">
+                            <th class="place_aim">目標数</th>
                             <th class="place_act">配布済数</th>
                         </c:when>
                         <c:otherwise>
+                            <th class="place_aim">初期目標数</th>
                             <th class="place_act1">配布済数</th>
                             <th class="place_act2">配布見込み</th>
                         </c:otherwise>
