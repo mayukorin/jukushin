@@ -44,6 +44,7 @@ public class PlaceCreateServlet extends HttpServlet {
             EntityManager em =DBUtil.createEntityManager();
 
             Issue2 i2 = new Issue2();
+            Issue1 i1 = em.find(Issue1.class, (Integer)request.getSession().getAttribute("i1_id"));
 
             List<String> errors = new ArrayList<String>();
 
@@ -58,7 +59,7 @@ public class PlaceCreateServlet extends HttpServlet {
             i2.setContent(content);
 
 
-            //日吉か三田か、new.jspから受け取ったパラメタを格納
+            //日吉か三田か、その他の場所か、new.jspから受け取ったパラメタを格納
             i2.setCan_flag(Integer.parseInt(request.getParameter("mh")));
 
             //目標値
@@ -73,6 +74,7 @@ public class PlaceCreateServlet extends HttpServlet {
                 request.setAttribute("_token", request.getSession().getId());
                 request.setAttribute("i2", i2);
                 request.setAttribute("errors", errors);
+                request.setAttribute("decision", i1.getDecision());
 
 
                 RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/places/new.jsp");
@@ -92,7 +94,7 @@ public class PlaceCreateServlet extends HttpServlet {
                 i2.setCompany(c);
 
                 //Newspaper
-                Issue1 i1 = em.find(Issue1.class,((Integer) request.getSession().getAttribute("i1_id")));
+
                 i2.setNewspaper(i1.getNewspaper());
 
                 List<Place> places = em.createNamedQuery("place_exit",Place.class).setParameter("name", place_name).getResultList();//入力した名前のPlaceがすでに存在するか
@@ -127,6 +129,9 @@ public class PlaceCreateServlet extends HttpServlet {
                     } else if (i2.getCan_flag() == 0) {
                         //三田の振り分け追加
                         i1.setMita(i1.getMita()+i2.getAim());
+                    } else {
+                        //その他の場所を追加
+                        i1.setOther(i1.getOther()+i2.getAim());
                     }
 
                     i1.setRemain(i1.getRemain()-i2.getAim());//全体の新聞の残部を更新（あとどれだけ振り分けなければいけないか）

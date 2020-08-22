@@ -19,15 +19,24 @@
 
             <label for="mh">日吉か三田</label><br/>
             <select name="mh">
-                <option value="1"<c:if test="${flag == 1}">disabled</c:if>>日吉</option>
-                <option value="0"<c:if test="${flag == 2}">disabled</c:if>>三田</option>
+            <c:choose>
+                <c:when test="${decision == 0}">
+                    <option value="1">日吉</option>
+                    <option value="0">三田</option>
+                    <option value="2">その他の場所</option>
+                </c:when>
+                <c:otherwise>
+                    <option value="1"<c:if test="${flag == 1}">disabled</c:if>>日吉</option>
+                    <option value="0"<c:if test="${flag == 2}">disabled</c:if>>三田</option>
+                </c:otherwise>
+            </c:choose>
             </select>
             <br/><br/>
 
             <label for="aim">配布目標数</label><br/>
             <select name="aim">
                 <c:forEach var="i" begin="1" end="${sessionScope.remain}" step="1">
-                    <option value="${i}">${i}</option>
+                    <option value="${i}"<c:if test="${i2.aim == i}">selected</c:if>>${i}</option>
                 </c:forEach>
 
             </select>

@@ -59,6 +59,7 @@ public class PlaceNewServlet extends HttpServlet {
         request.setAttribute("flag", flag);
 
         request.setAttribute("i2", new Issue2());
+        request.setAttribute("decision", i1.getDecision());
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/places/new.jsp");
         rd.forward(request, response);

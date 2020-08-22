@@ -305,7 +305,9 @@
 
         <c:choose>
             <c:when test="${decision == 0}">
-                <p><a href="<c:url value='/places/new?flag=0'/>">新規配布場所の登録</a></p>
+                <c:if test="${i1.remain > 0}">
+                    <p><a href="<c:url value='/places/new?flag=0'/>">新規配布場所の登録</a></p>
+                </c:if>
                 <p><a href="<c:url value='/places/decide'/>"><button type="submit">日吉と三田の部数を確定させる</button></a></p>
             </c:when>
             <c:otherwise>
