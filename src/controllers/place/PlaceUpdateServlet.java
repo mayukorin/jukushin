@@ -2,8 +2,11 @@ package controllers.place;
 
 import java.io.IOException;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,6 +39,7 @@ public class PlaceUpdateServlet extends HttpServlet {
         // TODO Auto-generated method stub
 
         String _token =(String) request.getParameter("_token");
+        List<String> errors = new ArrayList<String>();
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em =DBUtil.createEntityManager();
 
@@ -94,34 +98,71 @@ public class PlaceUpdateServlet extends HttpServlet {
                     i2.setCan_flag(Integer.parseInt(request.getParameter("mh")));
                 }
 
-            }
-
-            if (i2.getCan_flag() != 2 || i1.getDecision() == 0) {
-                //振り分け確定前か、その他の場所以外を編集しようとしている時
-                System.out.println("maky you happyあいうあいうあいうあいうあいうあいうあいうあいうあいうあいうあいう");
                 i2.setAim(Long.parseLong(request.getParameter("aim")));
-            }
-
-            if (i1.getDecision()==0) {
-                //振り分け確定前
                 i2.setAimconst(Long.parseLong(request.getParameter("aim")));//固定の値の目標を変更
+
+            } else {
+                //振り分け確定後
+                if (i2.getCan_flag() != 2) {
+                    Long aim = Long.parseLong(request.getParameter("aim"));
+
+                    if (i2.getCan_flag() != Integer.parseInt(request.getParameter("mh")) && i2.getCan_flag() == 0) {
+                        //元々三田部室から持ってこようとしていたものを、日吉部室から持ってくるように変更する場合
+                        if (i1.cacultate(1) - aim >= 0) {
+                            //その分の新聞が日吉部室に残っている場合
+                            i2.setCan_flag(1);
+                            System.out.println("あああああああああ");
+                            i2.setAim(aim);
+                        } else {
+                            errors.add("日吉部室から、その部数の新聞を確保することはできません。");
+                        }
+                    } else if (i2.getCan_flag() != Integer.parseInt(request.getParameter("mh")) && i2.getCan_flag() == 1) {
+                        //元々日吉部室から持ってこようとしていたものを、三田部室から持ってくるように変更する場合
+                        if (i1.cacultate(0) - aim >= 0) {
+                            //その分の新聞が日吉部室に残っている場合
+                            i2.setCan_flag(0);
+                            i2.setAim(aim);
+                        } else {
+                            errors.add("三田部室から、その部数の新聞を確保することはできません。");
+                        }
+                    }
+                }
+
+
+
+
+                i2.setContent(request.getParameter("content"));
+                i2.setUpdated_at(new Timestamp(System.currentTimeMillis()));
+
+                if (errors.size() > 0) {
+                    em.close();
+
+                    request.setAttribute("_token", request.getSession().getId());
+                    request.setAttribute("i2", i2);
+                    request.setAttribute("errors", errors);
+                    request.setAttribute("decision", i1.getDecision());
+
+
+
+                    RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/places/edit.jsp");
+                    rd.forward(request, response);
+                } else {
+                    //データベースを更新
+                    em.getTransaction().begin();
+                    em.getTransaction().commit();
+                    em.close();
+                    request.getSession().setAttribute("flush", "更新が完了しました。");
+
+
+
+                    response.sendRedirect(request.getContextPath()+"/place/index");
+                }
             }
-
-
-            i2.setContent(request.getParameter("content"));
-            i2.setUpdated_at(new Timestamp(System.currentTimeMillis()));
-
-            //データベースを更新
-            em.getTransaction().begin();
-            em.getTransaction().commit();
-            em.close();
-            request.getSession().setAttribute("flush", "更新が完了しました。");
-
-
-            response.sendRedirect(request.getContextPath()+"/place/index");
         }
     }
 }
+
+
 
 
 

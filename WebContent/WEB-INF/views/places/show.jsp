@@ -18,7 +18,16 @@
                         <td><c:out value="${i2.newspaper.month}"/></td>
                     </tr>
                     <tr>
-                        <th>目標数</th>
+                        <th>
+                        <c:choose>
+                        <c:when test="${decision == 0 }">
+                            目標数
+                        </c:when>
+                        <c:otherwise>
+                            現在の目標数
+                        </c:otherwise>
+                        </c:choose>
+                        </th>
                         <td><c:out value="${i2.aim}"/></td>
                     </tr>
                     <tr>
