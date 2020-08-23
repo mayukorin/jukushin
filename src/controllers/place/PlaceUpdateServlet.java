@@ -54,6 +54,8 @@ public class PlaceUpdateServlet extends HttpServlet {
 
                 //全体の残部を更新する
                 i1.setRemain(i1.getRemain()+i2.getAim()-Integer.parseInt(request.getParameter("aim")));
+                i2.setDate(request.getParameter("date"));
+
 
                 if (i2.getCan_flag() != 2) {
 
@@ -63,7 +65,7 @@ public class PlaceUpdateServlet extends HttpServlet {
                     } else if (i2.getCan_flag()==Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==0) {
                         //元々配達場所が三田のものがそのまま三田。部数だけ更新
                         i1.setMita(i1.getMita()-i2.getAim()+Integer.parseInt(request.getParameter("aim")));
-                        System.out.println("あああああああああ");
+
                     } else if (i2.getCan_flag()!=Integer.parseInt(request.getParameter("mh"))&&Integer.parseInt(request.getParameter("mh"))==1) {
                         //元々の配達場所が三田のものが日吉になった。
                         i1.setMita(i1.getMita()-i2.getAim());
@@ -106,6 +108,7 @@ public class PlaceUpdateServlet extends HttpServlet {
                 //振り分け確定後
                 if (i2.getCan_flag() != 2) {
                     Long aim = Long.parseLong(request.getParameter("aim"));
+                    i2.setDate(request.getParameter("date"));
 
                     if (i2.getCan_flag() != Integer.parseInt(request.getParameter("mh")) && i2.getCan_flag() == 0) {
                         //元々三田部室から持ってこようとしていたものを、日吉部室から持ってくるように変更する場合

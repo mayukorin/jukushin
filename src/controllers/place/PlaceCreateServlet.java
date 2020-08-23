@@ -2,9 +2,7 @@ package controllers.place;
 
 import java.io.IOException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -57,13 +55,10 @@ public class PlaceCreateServlet extends HttpServlet {
             }
 
             //配布予定日
-            try {
-                SimpleDateFormat sdFormat = new SimpleDateFormat("yyyy-MM-dd");
-                Date date = sdFormat.parse(request.getParameter("date"));
-                i2.setDate(date);
-            } catch (Exception e) {
-                errors.add("配布予定日を入力してください");
-            }
+
+            i2.setDate(request.getParameter("date"));
+
+
 
             //内容
             String content=request.getParameter("content");

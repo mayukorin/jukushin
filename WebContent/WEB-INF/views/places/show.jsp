@@ -14,6 +14,10 @@
                         <td><c:out value="${i2.place.name}"/></td>
                     </tr>
                     <tr>
+                        <th>配布（予定）日</th>
+                        <td><c:out value="${i2.date}"/></td>
+                    </tr>
+                    <tr>
                         <th>配布号</th>
                         <td><c:out value="${i2.newspaper.month}"/></td>
                     </tr>

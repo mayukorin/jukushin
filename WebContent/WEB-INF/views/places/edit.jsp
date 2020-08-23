@@ -20,6 +20,10 @@
                         <c:out value="${i2.place.name}"/>
                         <br/><br/>
 
+                        <label for="date"> 配布予定日</label><br/>
+                        <c:out value="${i2.date }"/>
+                        <br/><br/>
+
                          <label for="mh">新聞の置き場所</label><br/>
                          <c:out value="その他の場所"/>
                          <br/><br/>
@@ -39,6 +43,10 @@
                         <c:otherwise>
                         <label for="name">配布場所</label><br/>
                         <c:out value="${i2.place.name}"/>
+                        <br/><br/>
+
+                        <label for="date"> 配布予定日</label><br/>
+                        <input type="date" name="date" value="${i2.date}"/>
                         <br/><br/>
 
                         <label for="mh">新聞の置き場所</label><br/>

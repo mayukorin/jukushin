@@ -1,7 +1,6 @@
 package models;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -75,7 +74,7 @@ public class Issue2 {
     private String content;
 
     @Column(name="date")
-    private Date date;
+    private String date;
 
 
 
@@ -167,11 +166,11 @@ public class Issue2 {
         this.content = content;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
