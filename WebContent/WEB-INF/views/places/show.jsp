@@ -69,11 +69,15 @@
                     </c:when>
                     <c:otherwise>
                                 <c:choose>
-                                    <c:when test="${i2.act == 0}">
+                                    <c:when test="${i2.act == 0 }">
+                                        <c:if test="${i2.aim + remain > 0 }">
                                         <p><a href="<c:url value="/places/edit?id=${i2.id}"/>">この配布の目標数を変更する</a></p>
+                                        </c:if>
                                     </c:when>
                                     <c:when test="${i2.place.name == '三田ラック' or i2.place.name =='日吉ラック' or i2.place.name =='研究室棟' or i2.place.name =='矢上ラック' }">
+                                        <c:if test="${i2.aim + remain > 0 }">
                                         <p><a href="<c:url value="/places/edit?id=${i2.id}"/>">この配布の目標数を変更する</a></p>
+                                        </c:if>
                                     </c:when>
                                 </c:choose>
                                 <c:choose>

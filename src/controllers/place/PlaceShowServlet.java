@@ -41,6 +41,23 @@ public class PlaceShowServlet extends HttpServlet {
 
         Issue1 i1 = em.find(Issue1.class,((Integer) request.getSession().getAttribute("i1_id")));
 
+        if (i1.getDecision() == 1 && i2.getCan_flag() !=2) {
+            Long remain = 0L;
+            if (i2.getCan_flag()==0) {
+                //三田
+                remain = i1.cacultate(0);
+
+                request.setAttribute("remain", remain);
+
+            } else {
+                //日吉
+                remain = i1.cacultate(1);
+                System.out.println("あああああああああ"+i2.getAim()+remain);
+
+                request.setAttribute("remain", remain);
+            }
+        }
+
 
         em.close();
 
