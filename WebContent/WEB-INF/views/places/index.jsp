@@ -186,7 +186,7 @@
                     </tr>
                     </c:when>
                     <c:when test="${decision == 1 && pl.act >= pl.aimconst }">
-                    <tr class="row1">
+                    <tr class="row3">
                         <td class="place_name"><c:out value="${pl.place.name}"/></td>
                         <td class="place_aim"><c:out value="${pl.aimconst}"/></td>
                         <c:choose>
@@ -416,7 +416,7 @@
                         </tr>
                         </c:when>
                         <c:when test="${decision == 1 && plm.act >= plm.aimconst}">
-                            <tr class="row1">
+                            <tr class="row3">
                             <td class="place_name"><c:out value="${plm.place.name}"/></td>
                             <td class="place_aim"><c:out value="${plm.aimconst}"/></td>
                             <c:choose>
@@ -524,7 +524,7 @@
                         </tr>
                         </c:when>
                         <c:otherwise>
-                        <tr class="row1">
+                        <tr class="row3">
                             <td class="place_name"><c:out value="${plo.place.name}"/></td>
                         <td class="place_aim"><c:out value="${plo.aim}"/></td>
                         <c:choose>

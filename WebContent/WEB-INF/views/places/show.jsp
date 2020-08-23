@@ -10,6 +10,10 @@
                 <table>
                 <tbody>
                     <tr>
+                        <th>配布年</th>
+                        <td><c:out value="${i2.newspaper.year}"/></td>
+                    </tr>
+                    <tr>
                         <th>配布場所</th>
                         <td><c:out value="${i2.place.name}"/></td>
                     </tr>
