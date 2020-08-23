@@ -114,6 +114,7 @@
                 <h2>お探しのデータは見つかりませんでした。</h2>
             </c:otherwise>
         </c:choose>
+        <p><a href="<c:url value="/place/search?id=${i2.id}"/>">他の年の${i2.place.name}のハケ状況を見る</a>
         <p><a href="<c:url value="/place/index"/>">${i2.newspaper.month}月のハケ状況一覧に戻る</a>
 
 

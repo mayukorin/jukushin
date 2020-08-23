@@ -52,7 +52,7 @@ public class PlaceShowServlet extends HttpServlet {
             } else {
                 //日吉
                 remain = i1.cacultate(1);
-                System.out.println("あああああああああ"+i2.getAim()+remain);
+
 
                 request.setAttribute("remain", remain);
             }
