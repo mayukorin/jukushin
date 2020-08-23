@@ -17,6 +17,11 @@
             <input type="text" name="name" value="${i2.place.name}"/>
             <br/><br/>
 
+            <label for="date"> 配布予定日</label><br/>
+            <input type="date" name="date"/>
+            <br/><br/>
+
+
             <label for="mh">日吉か三田</label><br/>
             <select name="mh">
             <c:choose>

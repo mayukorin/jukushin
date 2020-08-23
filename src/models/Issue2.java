@@ -1,5 +1,6 @@
 package models;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.Iterator;
 import java.util.List;
@@ -72,6 +73,11 @@ public class Issue2 {
     @Lob
     @Column(name="content")
     private String content;
+
+    @Column(name="date")
+    private Date date;
+
+
 
     public Integer getId() {
         return id;
@@ -161,6 +167,14 @@ public class Issue2 {
         this.content = content;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public Long cacultate(Integer flag,Issue1 i1) {
         EntityManager em = DBUtil.createEntityManager();
 
@@ -209,6 +223,7 @@ public class Issue2 {
 
         return mm;
     }
+
 
 
 
