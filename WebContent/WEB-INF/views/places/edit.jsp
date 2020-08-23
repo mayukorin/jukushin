@@ -45,7 +45,7 @@
                         <c:out value="${i2.place.name}"/>
                         <br/><br/>
 
-                        <label for="date"> 配布予定日</label><br/>
+                        <label for="date"> 配布（予定）日</label><br/>
                         <input type="date" name="date" value="${i2.date}"/>
                         <br/><br/>
 

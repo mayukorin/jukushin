@@ -18,6 +18,10 @@
                     <c:out value="${i2.place.name}"/>
                     <br/><br/>
 
+                    <label for="date"> 配布日</label><br/>
+                    <input type="date" name="date" value="${i2.date}"/>
+                    <br/><br/>
+
                     <label for="mh">日吉か三田</label><br/>
                     <c:choose>
                         <c:when test="${i2.can_flag==0}">

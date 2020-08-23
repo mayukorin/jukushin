@@ -46,6 +46,7 @@ public class PlaceUpdateActual extends HttpServlet {
 
 
             i2.setContent(request.getParameter("content"));
+            i2.setDate(request.getParameter("date"));
 
             String act_str=request.getParameter("act");
 
