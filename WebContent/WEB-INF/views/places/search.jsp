@@ -44,7 +44,7 @@
                         <th>ハケ率</th>
                         <td>
                             <c:if test="${i.aim != 0 }">
-                                <c:out value="${i2.act/i2.aim}"/>
+                                <c:out value="${i.act/i.aim}"/>
                             </c:if>
                         </td>
                     </tr>

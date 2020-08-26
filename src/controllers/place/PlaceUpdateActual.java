@@ -88,6 +88,7 @@ public class PlaceUpdateActual extends HttpServlet {
                     }
                     i1.setMita_a(m_a);
                 } else {
+                    //日吉
                     Long h_a;
                     if (i2.getAct() !=0) {
                         h_a=i1.getHiyoshi_a()-i2.getAct()+Integer.parseInt(act_str);
