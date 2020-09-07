@@ -9,13 +9,14 @@
 		<class>models.Issue2</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/jukushin?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8"/>
-			<property name="javax.persistence.jdbc.user" value="jepuser"/>
-			<property name="javax.persistence.jdbc.password" value="jeppass"/>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.schema-generation.database.action" value="none"/>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="hibernate.format_sql	" value="true"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://us-cdbr-east-02.cleardb.com/heroku_4998ae308e7e729?reconnect=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf8&amp;characterSetResults=utf8"/>
+			<property name="javax.persistence.jdbc.user" value="b579fbe5d80113"/>
+			<property name="javax.persistence.jdbc.password" value="380bd7dc"/>
+			<property name="javax.persistence.schema-generation.scripts.action" value="none"/>
 		</properties>
 	</persistence-unit>
 </persistence>

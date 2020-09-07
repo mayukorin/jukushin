@@ -24,7 +24,7 @@
                             <br />
                             <br />
 
-                            <label for="date"> 配布予定日</label>
+                            <label for="date"> 配布予定日（カレンダーが表示されない場合は、2020-08-01のように入力してください）</label>
                             <br />
                             <c:out value="${i2.date }" />
                             <br />

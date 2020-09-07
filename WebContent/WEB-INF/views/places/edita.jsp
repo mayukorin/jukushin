@@ -19,7 +19,7 @@
                     <label for="name">配布場所</label><br />
                     <c:out value="${i2.place.name}" />
                     <br />
-                    <br /> <label for="date"> 配布日</label><br /> <input type="date"
+                    <br /> <label for="date"> </label><br /> <input type="date"
                         name="date" value="${i2.date}" /> <br />
                     <br /> <label for="mh">日吉か三田</label><br />
                     <c:choose>
