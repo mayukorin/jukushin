@@ -93,7 +93,7 @@
                             <label for="aim">配布目標数</label>
                             <br />
                             <select name="aim">
-                                <c:forEach var="i" begin="1" end="${remain+i2.aim}" step="1">
+                                <c:forEach var="i" begin="0" end="${sessionScope.remain+i2.aim}" step="1">
                                     <option value="${i}"
                                         <c:if test="${i2.aim == i}">selected</c:if>>${i}</option>
                                 </c:forEach>

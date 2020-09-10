@@ -44,7 +44,7 @@ public class PlaceEditServlet extends HttpServlet {
         if (i1.getDecision()==0) {
             //振り分け確定前の時は、配布目標欄に残部＋今登録している部数までを上限にする
             Long remain=i1.getRemain();
-            request.setAttribute("remain", remain);
+            request.getSession().setAttribute("remain", remain);
 
 
         } else {
@@ -55,13 +55,14 @@ public class PlaceEditServlet extends HttpServlet {
                     //三田
                     remain = i1.cacultate(0);
 
-                    request.setAttribute("remain", remain);
+                    request.getSession().setAttribute("remain", remain);
 
                 } else {
                     //日吉
                     remain = i1.cacultate(1);
 
-                    request.setAttribute("remain", remain);
+
+                    request.getSession().setAttribute("remain", remain);
                 }
             }
 
